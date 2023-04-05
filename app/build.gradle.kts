@@ -1,3 +1,5 @@
+val picocliVersion: String by project
+
 plugins {
     id("java")
     application
@@ -11,7 +13,7 @@ repositories {
 }
 
 application {
-    mainClass.set("hexlet.code.Main")
+    mainClass.set("hexlet.code.App")
 }
 
 tasks.compileJava {
@@ -19,6 +21,9 @@ tasks.compileJava {
 }
 
 dependencies {
+    implementation("info.picocli:picocli:$picocliVersion")
+    annotationProcessor("info.picocli:picocli-codegen:$picocliVersion")
+
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
